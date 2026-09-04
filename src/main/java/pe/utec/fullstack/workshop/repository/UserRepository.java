@@ -9,5 +9,6 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Integer>, JpaSpecificationExecutor<UserEntity> {
 
+    //select * from users where enabled = true and username = '${userName}'
     Optional<UserEntity> findByEnabledTrueAndUserName(String userName);
 }

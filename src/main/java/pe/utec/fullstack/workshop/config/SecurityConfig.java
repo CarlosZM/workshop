@@ -33,7 +33,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/me/**").hasAuthority("ROLE_USER")
-                        .requestMatchers("/api/admin/**").hasAuthority("ROLE_STORE")
+                        .requestMatchers("/api/admin/**").hasAuthority("ROLE_ADMIN")
                         /*
                         .requestMatchers("/persons/**").hasAuthority("ROLE_PERSONS")
                         .requestMatchers("/me/**").hasAuthority("ROLE_ADMIN")

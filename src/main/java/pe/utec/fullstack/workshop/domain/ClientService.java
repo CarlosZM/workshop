@@ -8,6 +8,7 @@ import org.springframework.data.web.PagedModel;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import pe.utec.fullstack.workshop.controller.ClientMapping;
+import pe.utec.fullstack.workshop.controller.auth.UserInfoDetails;
 import pe.utec.fullstack.workshop.controller.query.AddressQueryParams;
 import pe.utec.fullstack.workshop.controller.query.PageParams;
 import pe.utec.fullstack.workshop.domain.business.ClientAddress;
@@ -28,7 +29,7 @@ public class ClientService {
     @Autowired
     private ClientMapping clientMapping;
 
-    public PagedModel<ClientAddress> findWithFilterAndPagination(AddressQueryParams addressQueryParams, UserDetails userDetails) {
+    public PagedModel<ClientAddress> findWithFilterAndPagination(AddressQueryParams addressQueryParams, UserInfoDetails userDetails) {
 
         Specification<AddressEntity> specification = this.addressRepository.buildQuery(addressQueryParams, userDetails);
         Pageable pageable = PageRequest.of(Optional.ofNullable(addressQueryParams.getPagination()).map(PageParams::getSize).orElse(1), Optional.ofNullable(addressQueryParams.getPagination()).map(PageParams::getPage).orElse(10), Sort.by("name"));

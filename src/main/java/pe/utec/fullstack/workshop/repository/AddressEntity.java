@@ -21,7 +21,7 @@ public class AddressEntity {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name="user_id", nullable=false)
+    @JoinColumn(name = "user_id", nullable = false)
     private ClientEntity client;
 
     private String name;
@@ -32,6 +32,7 @@ public class AddressEntity {
 
     private Long longitude;
 
+    //street_name
     private String streetName;
 
     private Boolean enabled;
