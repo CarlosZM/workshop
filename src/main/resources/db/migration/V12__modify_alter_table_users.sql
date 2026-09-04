@@ -1,0 +1,1 @@
+alter sequence public.users_seq restart with 4;
